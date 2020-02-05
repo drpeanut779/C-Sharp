@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Card_Identifier_Application
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // Using the click event to push "Two of Clubs" to the cardOutput label text property to display the PictureBox that was clicked.
+        // The cardOutput label will have its previous text replaced by "Two of Clubs".
+        private void twoOfClubs_Click(object sender, EventArgs e)
+        {
+            cardOutput.Text = "Two of Clubs";
+        }
+
+        // Using the click event to push "Ten of Diamonds" to the cardOutput label text property to display the PictureBox that was clicked.
+        // The cardOutput label will have its previous text replaced by "Ten of Diamonds".
+        private void tenOfDiamonds_Click(object sender, EventArgs e)
+        {
+            cardOutput.Text = "Ten of Diamonds";
+        }
+
+        // Using the click event to push "Eight of Spades" to the cardOutput label text property to display the card that was clicked.
+        // The cardOutput label will have its previous text replaced by "Eight of Spades".
+        private void eightOfSpades_Click(object sender, EventArgs e)
+        {
+            cardOutput.Text = "Eight of Spades";
+        }
+
+        // Using the click event to push "King of Hearts" to the cardOutput label text peroperty to display the card that was clicked.
+        // The cardOutput label will have its previous text replaced by "King of Hearts".
+        private void kingOfHearts_Click(object sender, EventArgs e)
+        {
+            cardOutput.Text = "King of Hearts";
+        }
+
+        // Using the click event to push "Jack of Clubs" to the cardOutput label text property to display the card that was clicked.
+        // The cardOutput label will have its previous text replaced by "Jack of Clubs".
+        private void jackOfClubs_Click(object sender, EventArgs e)
+        {
+            cardOutput.Text = "Jack of Clubs";
+        }
+
+        // Executing a this.Close statement when the user clicks on the exitButton to close the application.
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
