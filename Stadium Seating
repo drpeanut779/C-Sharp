@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Stadium_Seating
+{
+    public partial class Form1 : Form
+    {
+        // Declaring field variables to be used throughout the program.
+        // The cost of the seats in the stadium are static and don't change.
+        private const int CLASS_A = 15;
+        private const int CLASS_B = 12;
+        private const int CLASS_C = 9;
+
+        // Initilizing a couple of variables to be used to calculate ticket sales.
+        private Double ClassATickets = 0;
+        private Double ClassBTickets = 0;
+        private Double ClassCTickets = 0;
+
+        // Declaring another field variable to initialize/hold the total.
+        private double total = 0;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void classATextBox_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void classBTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void classCTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            // Using a try/catch to make sure the user fills out each TextBox.
+            try
+            {
+                // Using the parse method to convert a string to a double.
+                // Assigning the double gathered from the Parse method to their respective variables.
+                ClassATickets = double.Parse(classATextBox.Text);
+                ClassBTickets = double.Parse(classBTextBox.Text);
+                ClassCTickets = double.Parse(classCTextBox.Text);
+
+                // Calculating the cost of all the tickets and assigning that value to the ticket variables.
+                ClassATickets *= CLASS_A;
+                ClassBTickets *= CLASS_B;
+                ClassCTickets *= CLASS_C;
+                               
+                // Getting the total cost of all the ticket sales.
+                total = ClassATickets + ClassBTickets + ClassCTickets;
+
+                // Displaying the totals of Class A/B/C ticket sales into their revenueLabel counterparts.
+                // Also formatting the number as currency.
+                revALabel.Text = ClassATickets.ToString("c");
+                revBLabel.Text = ClassBTickets.ToString("c");
+                revCLabel.Text = ClassCTickets.ToString("c");
+
+                // Displaying the total in the total Label and formatting it as currency.
+                totalRevenueLabel.Text = total.ToString("c");
+            }
+            catch
+            {
+                // Displaying a message to the user to remind them to fill out each field.
+                MessageBox.Show("Please fill out each field");            
+            }
+            
+
+
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            // Calling each TextBox and Label
+            // After we call everything we are then putting an empty string in each control.
+            classATextBox.Text = String.Empty;
+            classBTextBox.Text = String.Empty;
+            classCTextBox.Text = String.Empty;
+            revALabel.Text = String.Empty;
+            revBLabel.Text = String.Empty;
+            revCLabel.Text = String.Empty;
+            totalRevenueLabel.Text = String.Empty;
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form.
+            this.Close();
+        }
+
+        private void revALabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void revBLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void revCLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalRevenueLabel_Click(object sender, EventArgs e)
+        {
+            
+        }
+    }
+}
