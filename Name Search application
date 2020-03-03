@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+
+namespace Chapter_7___Problem_6___Name_Search
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            // Clearing the listBoxes
+            girlBox.Items.Clear();
+            boyBox.Items.Clear();
+
+            // Creating a string to hold the user girl name input.
+            string readGirls = girlTextBox.Text;
+
+
+            // Creating a string to hold the user boy name input.
+            string readBoys = boyTextBox.Text;
+
+            try
+            {
+
+
+                // declaring stream reader variables.
+                StreamReader inputFile;
+                StreamReader bInputFile;
+
+                // Open the file and get a streamreader Object
+                inputFile = File.OpenText("GirlNames.txt");
+                bInputFile = File.OpenText("BoyNames.txt");
+
+                // Also taking the inputFile and store the text inside
+                // a List for girls.
+                List<string> glist = new List<string>();
+                List<string> blist = new List<string>();
+
+                // Declaring a counter to iterate the while loop.
+                // Using the string line to populate the girl listbox.
+                int counter = 0;
+                string line;
+
+                while ((line = inputFile.ReadLine()) != null)
+                {
+                    
+                    girlBox.Items.Add(line);
+                    glist.Add(line);
+                    counter++;
+                }
+
+                // Declaring a counter to iterate the while loop.
+                // Using the string j to populate the boy listbox.
+                int count = 0;
+                string j;
+
+                while ((j = bInputFile.ReadLine()) != null)
+                {
+                    
+                    boyBox.Items.Add(j);
+                    blist.Add(j);
+                    count++;
+                }
+
+                // Checking if the girl list box has the user input.
+                if (girlBox.Items.Contains(readGirls))
+                {
+                    girlResultsTextBox.Text = readGirls;
+                }
+                else
+                {
+                    girlResultsTextBox.Text = "Name not found.";
+                }
+
+                // Checking if the boy box has the user input.
+                if (boyBox.Items.Contains(readBoys))
+                {
+                    boyResultsTextBox.Text = readBoys;
+                }
+                else
+                {
+                    boyResultsTextBox.Text = "Name not found.";
+                }
+
+                // Close the file
+                inputFile.Close();
+                bInputFile.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close this Form
+            this.Close();
+        }
+    }
+}
