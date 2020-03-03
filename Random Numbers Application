@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Random_Number_File_Writer
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form.
+            this.Close();
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                // Declare a StreamWriter variable.
+                StreamWriter outputFile;
+
+                // Create a Random object
+                Random rand = new Random();
+
+                // Using an if statement to determine if the user clicked the save button or cancel button.
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Create a file and get a streamWriter object
+                    outputFile = File.CreateText(saveFileDialog.FileName);
+
+                    // Getting the users number they provided in the textbox and using that variable to iterate in a for loop.
+                    for (int userInput = int.Parse(userInputTextBox.Text); userInput >= 1; userInput--)
+                    {
+
+                        // Get a random integer between 1 to 100.
+                        int num = rand.Next(1, 100);
+
+                        // Writing the random numbers
+                        outputFile.WriteLine(num);
+                    }
+
+                    // Close the file
+                    outputFile.Close();
+                }
+                else
+                {
+                    // Displaying a message to the user when they click the cancel button.
+                    MessageBox.Show("Save Canceled.");
+                }                
+
+            }
+            catch (Exception ex)
+            {
+                // Display the any errors to the user.
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
+}
