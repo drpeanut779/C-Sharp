@@ -1,0 +1,204 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Slot_Machine_Simulation
+{
+    public partial class Form1 : Form
+    {
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // Declaring variables to hold our winnings and losses
+        public int tempTotal = 0;
+        public int total = 0;
+        public int lostTotal = 0;
+        public int tempLostTotal = 0;
+
+        private void spinButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // User Input and converting it into an integer from a string.
+                string userInput = betTextBox.Text;
+                int bet = int.Parse(userInput);
+
+                // Using field variables to store our 
+                // amount we put into the slot machine
+                lostTotal += (tempLostTotal * -1);
+                lostTotal += (bet * -1);
+                lostTotal += (tempLostTotal * -1);
+
+                // Generating random numbers
+                Random num = new Random();
+                int box1 = num.Next(1, 11);
+                int box2 = num.Next(1, 11);
+                int box3 = num.Next(1, 11);
+
+                // Checking to see if any of our slots matched
+                // If any of our slots match we display a message as well as increase the winnings.
+                if (box1 == box2 || box1 == box3 || box2 == box3)
+                {                    
+                    bet *= 2;
+                    MessageBox.Show("Congrats! You have won x2 your bet.");
+                    if (box1 == box2 && box1 == box3)
+                    {                        
+                        bet *= 3;
+                        MessageBox.Show("Congrats! You have won x3 your bet.");
+                    }
+                }
+                else
+                {                    
+                    bet *= -1;
+                    MessageBox.Show("No luck this time! $0 awarded.");
+                }
+
+                // Taking the total and calculating the winnings.
+                total += tempTotal;
+                total += bet;
+                total += tempTotal;
+
+                // Using a switch to randomly shuffle my slots
+                switch (box1)
+                {
+                    case 1:
+                        pictureBox1.Image = imageList1.Images[0];
+                        break;
+                    case 2:
+                        pictureBox1.Image = imageList1.Images[1];
+                        break;
+                    case 3:
+                        pictureBox1.Image = imageList1.Images[2];
+                        break;
+                    case 4:
+                        pictureBox1.Image = imageList1.Images[3];
+                        break;
+                    case 5:
+                        pictureBox1.Image = imageList1.Images[4];
+                        break;
+                    case 6:
+                        pictureBox1.Image = imageList1.Images[5];
+                        break;
+                    case 7:
+                        pictureBox1.Image = imageList1.Images[6];
+                        break;
+                    case 8:
+                        pictureBox1.Image = imageList1.Images[7];
+                        break;
+                    case 9:
+                        pictureBox1.Image = imageList1.Images[8];
+                        break;
+                    case 10:
+                        pictureBox1.Image = imageList1.Images[9];
+                        break;
+                    case 11:
+                        pictureBox1.Image = imageList1.Images[10];
+                        break;
+                }
+
+                // Using a switch to randomly shuffle my slots
+                switch (box2)
+                {
+                    case 1:
+                        pictureBox2.Image = imageList1.Images[0];
+                        break;
+                    case 2:
+                        pictureBox2.Image = imageList1.Images[1];
+                        break;
+                    case 3:
+                        pictureBox2.Image = imageList1.Images[2];
+                        break;
+                    case 4:
+                        pictureBox2.Image = imageList1.Images[3];
+                        break;
+                    case 5:
+                        pictureBox2.Image = imageList1.Images[4];
+                        break;
+                    case 6:
+                        pictureBox2.Image = imageList1.Images[5];
+                        break;
+                    case 7:
+                        pictureBox2.Image = imageList1.Images[6];
+                        break;
+                    case 8:
+                        pictureBox2.Image = imageList1.Images[7];
+                        break;
+                    case 9:
+                        pictureBox2.Image = imageList1.Images[8];
+                        break;
+                    case 10:
+                        pictureBox2.Image = imageList1.Images[9];
+                        break;
+                    case 11:
+                        pictureBox2.Image = imageList1.Images[10];
+                        break;
+                }
+
+                // Using a switch to randomly shuffle my slots
+                switch (box3)
+                {
+                    case 1:
+                        pictureBox3.Image = imageList1.Images[0];
+                        break;
+                    case 2:
+                        pictureBox3.Image = imageList1.Images[1];
+                        break;
+                    case 3:
+                        pictureBox3.Image = imageList1.Images[2];
+                        break;
+                    case 4:
+                        pictureBox3.Image = imageList1.Images[3];
+                        break;
+                    case 5:
+                        pictureBox3.Image = imageList1.Images[4];
+                        break;
+                    case 6:
+                        pictureBox3.Image = imageList1.Images[5];
+                        break;
+                    case 7:
+                        pictureBox3.Image = imageList1.Images[6];
+                        break;
+                    case 8:
+                        pictureBox3.Image = imageList1.Images[7];
+                        break;
+                    case 9:
+                        pictureBox3.Image = imageList1.Images[8];
+                        break;
+                    case 10:
+                        pictureBox3.Image = imageList1.Images[9];
+                        break;
+                    case 11:
+                        pictureBox3.Image = imageList1.Images[10];
+                        break;
+                }              
+            }
+            catch (Exception ex)
+            {
+                // Display an Error message
+                MessageBox.Show(ex.Message);
+            }       
+        }
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // These message boxes let the user know what their winnings and losses are
+            if (total != 0)
+            {
+                MessageBox.Show("The total winnings are: $" + total);
+                MessageBox.Show("The total losses are: $" + lostTotal);
+            }
+            // Close the form.
+            this.Close();            
+        }
+    }
+}
