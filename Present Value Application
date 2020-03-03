@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Chapter_6___Present_Value
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+
+
+            // Reading the users input from the textbox and converting them to doubles.
+            double futureInput;
+            double interestInput;
+            double yearsInput;
+            futureInput = float.Parse(futureValueTextBox.Text);
+            interestInput = float.Parse(interestRateTextBox.Text);
+            yearsInput = float.Parse(numberYearsTextBox.Text);
+
+
+            // Assigning the cash variable with the result of the method.
+            // Also displaying the result to the user with the depositNeededLabel.
+            double cash = Math.Round(PresentValue(futureInput, interestInput, yearsInput), 2);
+            depositNeededLabel.Text = cash.ToString();
+        }
+
+
+        private double PresentValue(double futureValue, double interestRate, double numberOfYears)
+        {
+            // Declaring a variable to hold the interest rate.
+            // Declaring a result variable to hold the result of the for loop.
+            double interestTotal = 1 + interestRate;
+            double result = 1;
+
+            for (int i = 0; i < numberOfYears; i++)
+            {
+                result *= interestTotal;
+            }
+
+            // Once the loop has completed we divide the futureValue variable
+            // with the result of our for loop.
+            // We return the total that took our number to the power
+            double total = futureValue / result;
+            return total;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form  
+            this.Close();
+        }
+    }
+}
