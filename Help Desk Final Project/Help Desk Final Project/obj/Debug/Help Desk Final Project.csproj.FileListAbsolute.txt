@@ -1,0 +1,10 @@
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\bin\Debug\Help Desk Final Project.exe.config
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\bin\Debug\Help Desk Final Project.exe
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\bin\Debug\Help Desk Final Project.pdb
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help Desk Final Project.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help_Desk_Final_Project.Properties.Resources.resources
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help Desk Final Project.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help Desk Final Project.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help Desk Final Project.exe
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help Desk Final Project.pdb
+C:\Users\Administrator\source\repos\Help Desk Final Project\Help Desk Final Project\obj\Debug\Help_Desk_Final_Project.GUI.resources
