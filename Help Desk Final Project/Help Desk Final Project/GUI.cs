@@ -1,6 +1,3 @@
-﻿// William Kategianes
-// SPC ID: 2159058
-// Help Desk Application
 using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
